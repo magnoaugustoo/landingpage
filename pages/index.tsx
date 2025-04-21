@@ -171,7 +171,7 @@ export default function Home() {
         
         <div className="mb-8">
           <h3 className="text-center text-xl mb-6">technologies</h3>
-          <div className="flex justify-center space-x-8">
+          <div className="flex justify-center space-x-4">
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 flex items-center justify-center mb-2">
                 <Image 
@@ -267,7 +267,7 @@ export default function Home() {
         
         {/* Footer integrado à seção de contato */}
         <div className="mt-auto w-full">
-          <footer className="bg-[#282828] text-white py-8 w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+          <footer className="bg-[#282828] text-white py-16 w-screen relative left-1/2 right-1/2 -mx-[50vw]">
             <div className="flex justify-center space-x-6 text-sm">
               <button 
                 onClick={() => scrollToSection('home')}
