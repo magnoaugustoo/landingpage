@@ -106,8 +106,12 @@ export default function Home() {
       {/* Home Section */}
       <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
-          <h1 className="text-[150px] font-extralight leading-none mb-0">hello,</h1>
-          <p className="text-base mb-8 pt-[-4px]">- It&apos;s magno augusto rodrigues</p>
+          <h1 className="text-[175px] font-extralight leading-none mb-0">hello,</h1>
+          <p className="text-xl mb-8 -mt-5">
+            <span className="font-light">- It&apos;s</span>{' '}
+            <span className="font-normal">magno augusto rodrigues</span>
+          </p>
+
           
           <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center">
             <div>
@@ -223,68 +227,73 @@ export default function Home() {
       </section>
 
       {/* Contact Me Section */}
-      <section ref={contactRef} id="contact" className="flex flex-col px-8 py-16">
-        <h2 className="text-2xl mb-12 text-center">contact me</h2>
-        
-        <div className="text-center mb-24">
-          <p className="font-regular text-lg leading-relaxed mb-6 max-w-[350px] mx-auto">
-            Ideas are just dreams until design makes them real, turning visions into experiences.
-          </p>
+      <section ref={contactRef} id="contact" className="flex flex-col min-h-screen">
+        <div className="px-8 py-16 flex-grow">
+          <h2 className="text-2xl mb-12 text-center">contact me</h2>
           
-          <p className="text-base font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto">
-            Have an idea that could make a difference?
-            If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
-            I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
-          </p>
-          
-          <p className="text-base font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
-            Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
-          </p>
-          <div className="flex items-center justify-center mb-2 gap-2">
-            <Image 
-              src="/linked-in.svg" 
-              alt="LinkedIn" 
-              width={30} 
-              height={30} 
-            />
-            <a 
-              href="https://www.linkedin.com/in/magnoaugusto/" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-[#282828] hover:underline"
-            >
-              linkedin.com/in/magnoaugusto
-            </a>
+          <div className="text-center mb-24">
+            <p className="font-regular text-lg leading-relaxed mb-6 max-w-[350px] mx-auto">
+              Ideas are just dreams until design makes them real, turning visions into experiences.
+            </p>
+            
+            <p className="text-base font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto">
+              Have an idea that could make a difference?
+              If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
+              I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
+            </p>
+            
+            <p className="text-base font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
+              Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
+            </p>
+            
+            <div className="flex items-center justify-center mb-2 gap-2">
+              <Image 
+                src="/linked-in.svg" 
+                alt="LinkedIn" 
+                width={30} 
+                height={30} 
+              />
+              <a 
+                href="https://www.linkedin.com/in/magnoaugusto/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-[#282828] hover:underline"
+              >
+                linkedin.com/in/magnoaugusto
+              </a>
+            </div>
           </div>
         </div>
-
+        
+        {/* Footer integrado à seção de contato */}
+        <div className="mt-auto w-full">
+          <footer className="bg-[#282828] text-white py-8 w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+            <div className="flex justify-center space-x-6 text-sm">
+              <button 
+                onClick={() => scrollToSection('home')}
+                className={`transition-colors duration-300 ${activeSection === 'home' ? 'text-white' : 'text-gray-400'}`}
+              >
+                home
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className={`transition-colors duration-300 ${activeSection === 'about' ? 'text-white' : 'text-gray-400'}`}
+              >
+                about me
+              </button>
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className={`transition-colors duration-300 ${activeSection === 'contact' ? 'text-white' : 'text-gray-400'}`}
+              >
+                contact me
+              </button>
+            </div>
+          </footer>
+        </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-[#282828] text-white py-16">
-        <div className="container mx-auto px-8">
-          <div className="flex justify-center space-x-6 text-sm">
-            <button 
-              onClick={() => scrollToSection('home')}
-              className={`transition-colors duration-300 ${activeSection === 'home' ? 'text-white' : 'text-gray-400'}`}
-            >
-              home
-            </button>
-            <button 
-              onClick={() => scrollToSection('about')}
-              className={`transition-colors duration-300 ${activeSection === 'about' ? 'text-white' : 'text-gray-400'}`}
-            >
-              about me
-            </button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className={`transition-colors duration-300 ${activeSection === 'contact' ? 'text-white' : 'text-gray-400'}`}
-            >
-              contact me
-            </button>
-          </div>
-        </div>
-      </footer>
+
+
     </div>
   );
 }
