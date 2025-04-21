@@ -102,7 +102,7 @@ export default function Home() {
       <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-20 pb-4">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
           <h1 className="text-[115px] font-extralight leading-none mb-0">hello,</h1>
-          <p className="text-sm mb-8 pt-[-4px]">~ It's magno augusto rodrigues</p>
+          <p className="text-sm mb-8 pt-[-4px]">- It&apos;s magno augusto rodrigues</p>
           
           <div className="grid grid-cols-2 gap-4 mb-8 w-full max-w-[350px] place-items-center">
             <div>
@@ -156,7 +156,7 @@ export default function Home() {
         <p className="font-extralight text-center text-sm leading-relaxed mb-12 max-w-[300px] mx-auto">
           Creative-minded IT professional with a passion for human-centered technology. 
           I blend technical skills with empathy and design to create meaningful digital experiences. 
-          Currently finishing a Bachelor’s in Information Technology and looking for global 
+          Currently finishing a Bachelor&apos;s in Information Technology and looking for global 
           opportunities where I can grow, lead and contribute with purpose.
         </p>
         
@@ -228,12 +228,12 @@ export default function Home() {
           
           <p className="text-sm font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
             Have an idea that could make a difference?
-            If you're holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don't have to build it alone.
-            I'm here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
+            If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
+            I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
           </p>
           
           <p className="text-sm font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
-            Let’s bring your vision to life. Get in touch and let’s create something remarkable together.
+            Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
           </p>
         </div>
       </section>
