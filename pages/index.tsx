@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -133,8 +134,8 @@ export default function Home() {
           <Image 
             src="/home.png" 
             alt="Magno Augusto Rodrigues" 
-            width={500} 
-            height={500} 
+            width={700} 
+            height={700} 
             className="object-cover"
             priority
           />
