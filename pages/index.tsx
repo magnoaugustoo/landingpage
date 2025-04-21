@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
