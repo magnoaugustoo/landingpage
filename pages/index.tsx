@@ -107,7 +107,7 @@ export default function Home() {
       <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
           <h1 className="text-[175px] font-extralight leading-none mb-0">hello,</h1>
-          <p className="text-xl mb-8 -mt-5">
+          <p className="text-xl mb-8 -mt-4">
             <span className="font-light">- It&apos;s</span>{' '}
             <span className="font-normal">magno augusto rodrigues</span>
           </p>
@@ -116,13 +116,13 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center">
             <div>
               <h2 className="font-light mb-1">designer</h2>
-              <p className="text-sm font-extralight leading-relaxed w-[150px]">
+              <p className="text-base font-extralight leading-relaxed w-[150px]">
                 Crafting intuitive UIs & design systems as a product designer
               </p>
             </div>
             <div>
               <h2 className="font-light mb-1">&lt;coder&gt;</h2>
-              <p className="text-sm font-extralight leading-relaxed w-[150px]">
+              <p className="text-base font-extralight leading-relaxed w-[150px]">
                 Building elegant front-ends with logic, style, and precision
               </p>
             </div>
@@ -133,8 +133,8 @@ export default function Home() {
           <Image 
             src="/home.png" 
             alt="Magno Augusto Rodrigues" 
-            width={300} 
-            height={400} 
+            width={500} 
+            height={500} 
             className="object-cover"
             priority
           />
@@ -162,7 +162,7 @@ export default function Home() {
           />
         </div>
         
-        <p className="font-extralight text-center text-base leading-relaxed mb-12 max-w-[350px] mx-auto">
+        <p className="font-extralight text-center text-lg leading-relaxed mb-12 max-w-[350px] mx-auto">
           Creative-minded IT professional with a passion for human-centered technology. 
           I blend technical skills with empathy and design to create meaningful digital experiences. 
           Currently finishing a Bachelor&apos;s in Information Technology and looking for global 
@@ -232,17 +232,17 @@ export default function Home() {
           <h2 className="text-2xl mb-12 text-center">contact me</h2>
           
           <div className="text-center mb-24">
-            <p className="font-regular text-lg leading-relaxed mb-6 max-w-[350px] mx-auto">
+            <p className="font-regular text-xl leading-relaxed mb-6 max-w-[350px] mx-auto">
               Ideas are just dreams until design makes them real, turning visions into experiences.
             </p>
             
-            <p className="text-base font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto">
+            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto">
               Have an idea that could make a difference?
               If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
               I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
             </p>
             
-            <p className="text-base font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
+            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
               Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
             </p>
             
