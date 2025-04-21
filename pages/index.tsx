@@ -65,11 +65,11 @@ export default function Home() {
           className="flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none"
         >
           {/* Linha de cima - 100% */}
-          <span className={`block w-8 h-0.5 bg-gray-800 transform transition duration-300 
+          <span className={`block w-7 h-0.5 bg-gray-800 transform transition duration-300 self-end
             ${menuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
 
           {/* Linha de baixo - 75% */}
-          <span className={`block w-6 h-0.5 bg-gray-800 transform transition duration-300 self-end
+          <span className={`block w-5 h-0.5 bg-gray-800 transform transition duration-300 self-end
             ${menuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
         </button>
       </div>
