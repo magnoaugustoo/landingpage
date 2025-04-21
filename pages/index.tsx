@@ -106,8 +106,8 @@ export default function Home() {
       {/* Home Section */}
       <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
-          <h1 className="text-[175px] font-extralight leading-none mb-0 -mt-4">hello,</h1>
-          <p className="text-xl mb-8 -mt-8">
+          <h1 className="text-[175px] font-extralight leading-none mb-0">hello,</h1>
+          <p className="text-xl mb-8 -mt-4">
             <span className="font-light">- It&apos;s</span>{' '}
             <span className="font-normal">magno augusto rodrigues</span>
           </p>
