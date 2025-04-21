@@ -99,12 +99,12 @@ export default function Home() {
       </div>
 
       {/* Home Section */}
-      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-20 pb-4">
+      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
           <h1 className="text-[115px] font-extralight leading-none mb-0">hello,</h1>
           <p className="text-sm mb-8 pt-[-4px]">- It&apos;s magno augusto rodrigues</p>
           
-          <div className="grid grid-cols-2 gap-4 mb-8 w-full max-w-[350px] place-items-center">
+          <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center">
             <div>
               <h2 className="font-light mb-1">designer</h2>
               <p className="text-xs font-extralight  leading-relaxed w-[150px]">
@@ -235,6 +235,23 @@ export default function Home() {
           <p className="text-sm font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
             Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
           </p>
+          <div className="flex items-center justify-center mb-2 gap-2">
+            <Image 
+              src="/linked-in.svg" 
+              alt="LinkedIn" 
+              width={30} 
+              height={30} 
+            />
+            <a 
+              href="https://www.linkedin.com/in/magnoaugusto/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-800 hover:underline"
+            >
+              linkedin.com/in/magnoaugusto
+            </a>
+          </div>
+
         </div>
       </section>
 
