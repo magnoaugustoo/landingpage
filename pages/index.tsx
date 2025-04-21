@@ -106,8 +106,8 @@ export default function Home() {
       {/* Home Section */}
       <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4">
         <div className="flex-1 flex flex-col justify-center items-center text-center">
-          <h1 className="text-[175px] font-extralight leading-none mb-0">hello,</h1>
-          <p className="text-xl mb-8 -mt-4">
+          <h1 className="text-[175px] font-extralight leading-none mb-0 -mt-4">hello,</h1>
+          <p className="text-xl mb-8 -mt-8">
             <span className="font-light">- It&apos;s</span>{' '}
             <span className="font-normal">magno augusto rodrigues</span>
           </p>
@@ -115,21 +115,21 @@ export default function Home() {
           
           <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center">
             <div>
-              <h2 className="font-light mb-1">designer</h2>
-              <p className="text-base font-extralight leading-relaxed w-[150px]">
+              <h2 className="text-xl font-light mb-1">designer</h2>
+              <p className="text-lg font-extralight leading-relaxed w-[150px]">
                 Crafting intuitive UIs & design systems as a product designer
               </p>
             </div>
             <div>
-              <h2 className="font-light mb-1">&lt;coder&gt;</h2>
-              <p className="text-base font-extralight leading-relaxed w-[150px]">
+              <h2 className="text-xl font-light mb-1">&lt;coder&gt;</h2>
+              <p className="text-lg font-extralight leading-relaxed w-[150px]">
                 Building elegant front-ends with logic, style, and precision
               </p>
             </div>
           </div>
         </div>
         
-        <div className="mx-auto mb-12">
+        <div className="mx-auto mb-12 -mt-8">
           <Image 
             src="/home.png" 
             alt="Magno Augusto Rodrigues" 
@@ -267,7 +267,7 @@ export default function Home() {
         
         {/* Footer integrado à seção de contato */}
         <div className="mt-auto w-full">
-          <footer className="bg-[#282828] text-white py-16 w-screen relative left-1/2 right-1/2 -mx-[50vw]">
+          <footer className="bg-[#282828] text-white py-12 w-screen relative left-1/2 right-1/2 -mx-[50vw]">
             <div className="flex justify-center space-x-6 text-sm">
               <button 
                 onClick={() => scrollToSection('home')}
