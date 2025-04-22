@@ -104,7 +104,7 @@ export default function Home() {
       </div>
 
       {/* Home Section */}
-      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4">
+      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4" style={{ minHeight: '100dvh' }}>
         <div className="flex-1 flex flex-col justify-center items-center text-center">
           <h1 className="text-[150px] font-extralight leading-none mb-0">hello,</h1>
           <p className="text-xl mb-8 -mt-4">
@@ -149,7 +149,7 @@ export default function Home() {
       </section>
 
       {/* About Me Section */}
-      <section ref={aboutRef} id="about" className="min-h-screen bg-white flex flex-col px-8 py-16">
+      <section ref={aboutRef} id="about" className="min-h-screen bg-white flex flex-col px-8 py-16" style={{ minHeight: '100dvh' }}>
         <h2 className="text-2xl mb-8 text-center">about me</h2>
         
         <div className="mx-auto mb-8 w-48 h-48 overflow-hidden rounded-lg">
@@ -227,7 +227,7 @@ export default function Home() {
       </section>
 
       {/* Contact Me Section */}
-      <section ref={contactRef} id="contact" className="flex flex-col min-h-screen">
+      <section ref={contactRef} id="contact" className="flex flex-col min-h-screen" style={{ minHeight: '100dvh' }}>
         <div className="px-8 py-16 flex-grow">
           <h2 className="text-2xl mb-12 text-center">contact me</h2>
           
