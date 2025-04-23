@@ -30,3 +30,15 @@ body {
   background-color: #F8F8F8;
   color: #282828;
 }
+
+/* Definir uma animação para fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
