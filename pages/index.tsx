@@ -5,15 +5,15 @@ import Image from 'next/image';
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const homeRef = useRef(null);
-  const aboutRef = useRef(null);
-  const contactRef = useRef(null);
+  const homeRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = (sectionId: string) => {
     setActiveSection(sectionId);
     setMenuOpen(false);
     
@@ -49,7 +49,7 @@ export default function Home() {
   }, []);
 
   // Função para verificar se um elemento está visível na viewport
-  const isElementInViewport = (el) => {
+  const isElementInViewport = (el: Element | null): boolean => {
     if (!el) return false;
     const rect = el.getBoundingClientRect();
     return (
@@ -85,7 +85,7 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', handleScrollAnimations);
     };
-  }, []);
+  }, [handleScrollAnimations]); // Adicionando handleScrollAnimations como dependência
 
   return (
     <div className="font-['Poppins'] text-gray-800 min-h-screen bg-gray-50">
@@ -96,7 +96,6 @@ export default function Home() {
         <meta name="color-scheme" content="light" />
         <meta name="theme-color" content="#f9fafb" />
         <link rel="icon" href="/favicon.ico" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
         <style dangerouslySetInnerHTML={{ __html: `
           @media (prefers-color-scheme: dark) {
             html {
