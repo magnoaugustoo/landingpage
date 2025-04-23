@@ -305,17 +305,12 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Scroll indicator - posicionado abaixo da imagem em ambas as versões - Agora sempre visível e clicável */}
+        {/* Scroll indicator - posicionado abaixo da imagem em ambas as versões - Sempre visível mas sem funcionalidade de clique */}
         <div className="text-center w-full order-3 mt-8 mb-4 md:absolute md:bottom-8 md:left-0 md:mt-0 z-10">
-          <button 
-            onClick={() => scrollToSection('about')}
-            className="text-sm cursor-pointer focus:outline-none"
-          >
-            scroll down
-            <svg className="w-6 h-6 mx-auto mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-            </svg>
-          </button>
+          <p className="text-sm">scroll down</p>
+          <svg className="w-6 h-6 mx-auto mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
         </div>
       </section>
 
@@ -341,7 +336,7 @@ export default function Home() {
         </p>
         
         <div className="mb-8 animate-from-bottom delay-300">
-          <h3 className="text-center text-xl mb-6 -mt-6">technologies</h3>
+          <h3 className="text-center text-xl mb-6">technologies</h3>
           <div className="flex justify-center space-x-4 md:space-x-8">
             <div className="flex flex-col items-center animate-from-bottom delay-300">
               <div className="w-12 h-12 flex items-center justify-center mb-2">
@@ -465,3 +460,4 @@ export default function Home() {
     </div>
   );
 }
+
