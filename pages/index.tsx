@@ -58,8 +58,24 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
 
-      {/* Hamburger Menu Button - 2 riscos */}
-      <div className="fixed top-6 right-6 z-50">
+      {/* Desktop Navigation */}
+      <nav className="hidden md:flex justify-center items-center space-x-8 p-8 absolute top-0 left-0 right-0 z-50">
+        <button 
+          onClick={() => scrollToSection('about')}
+          className={`transition-colors duration-300 ${activeSection === 'about' ? 'text-black font-medium' : 'text-gray-500'}`}
+        >
+          about me
+        </button>
+        <button 
+          onClick={() => scrollToSection('contact')}
+          className={`transition-colors duration-300 ${activeSection === 'contact' ? 'text-black font-medium' : 'text-gray-500'}`}
+        >
+          contact me
+        </button>
+      </nav>
+
+      {/* Hamburger Menu Button - Mobile Only */}
+      <div className="fixed top-6 right-6 z-50 md:hidden">
         <button 
           onClick={toggleMenu} 
           className="flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none"
@@ -74,12 +90,11 @@ export default function Home() {
         </button>
       </div>
 
-
       {/* Mobile Menu Overlay */}
       <div 
         className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
-        } flex flex-col justify-center items-center`}
+        } flex flex-col justify-center items-center md:hidden`}
       >
         <nav className="flex flex-col items-center space-y-8 text-2xl">
           <button 
@@ -104,32 +119,9 @@ export default function Home() {
       </div>
 
       {/* Home Section */}
-      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4" style={{ minHeight: '100dvh' }}>
-        <div className="flex-1 flex flex-col justify-center items-center text-center">
-          <h1 className="text-[150px] font-extralight leading-none mb-0">hello,</h1>
-          <p className="text-xl mb-8 -mt-4">
-            <span className="font-light">- It&apos;s</span>{' '}
-            <span className="font-normal">magno augusto rodrigues</span>
-          </p>
-
-          
-          <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center">
-            <div>
-              <h2 className="text-lg font-light mb-1">designer</h2>
-              <p className="text-base font-extralight leading-relaxed w-[150px]">
-                Crafting intuitive UIs & design systems as a product designer
-              </p>
-            </div>
-            <div>
-              <h2 className="text-lg font-light mb-1">&lt;coder&gt;</h2>
-              <p className="text-base font-extralight leading-relaxed w-[150px]">
-                Building elegant front-ends with logic, style, and precision
-              </p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="mx-auto mb-12">
+      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4 md:flex-row md:items-center md:justify-center md:gap-8 md:px-16 lg:px-24" style={{ minHeight: '100dvh' }}>
+        {/* Image container - Mobile: bottom, Desktop: left */}
+        <div className="mx-auto mb-12 order-2 md:order-1 md:mb-0 md:w-1/2 md:flex md:justify-end">
           <Image 
             src="/home.png" 
             alt="Magno Augusto Rodrigues" 
@@ -140,7 +132,32 @@ export default function Home() {
           />
         </div>
         
-        <div className="text-center mb-8">
+        {/* Text content - Mobile: top, Desktop: right */}
+        <div className="flex-1 flex flex-col justify-center items-center text-center order-1 md:order-2 md:items-start md:text-left md:w-1/2">
+          <h1 className="text-[150px] font-extralight leading-none mb-0 md:text-[180px]">hello,</h1>
+          <p className="text-xl mb-8 -mt-4 md:mb-12">
+            <span className="font-light">- It&apos;s</span>{' '}
+            <span className="font-normal">magno augusto rodrigues</span>
+          </p>
+
+          <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center md:place-items-start md:gap-8">
+            <div>
+              <h2 className="text-lg font-light mb-1">designer</h2>
+              <p className="text-base font-extralight leading-relaxed w-[150px] md:w-auto">
+                Crafting intuitive UIs & design systems as a product designer
+              </p>
+            </div>
+            <div>
+              <h2 className="text-lg font-light mb-1">&lt;coder&gt;</h2>
+              <p className="text-base font-extralight leading-relaxed w-[150px] md:w-auto">
+                Building elegant front-ends with logic, style, and precision
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        {/* Scroll indicator - visible on both layouts but positioned differently */}
+        <div className="text-center mb-8 w-full absolute bottom-0 left-0 md:bottom-8">
           <p className="text-sm">scroll down</p>
           <svg className="w-6 h-6 mx-auto mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -149,7 +166,7 @@ export default function Home() {
       </section>
 
       {/* About Me Section */}
-      <section ref={aboutRef} id="about" className="min-h-screen bg-white flex flex-col px-8 py-16" style={{ minHeight: '100dvh' }}>
+      <section ref={aboutRef} id="about" className="min-h-screen bg-white flex flex-col px-8 py-16 md:py-24" style={{ minHeight: '100dvh' }}>
         <h2 className="text-2xl mb-8 text-center">about me</h2>
         
         <div className="mx-auto mb-8 w-48 h-48 overflow-hidden rounded-lg">
@@ -162,7 +179,7 @@ export default function Home() {
           />
         </div>
         
-        <p className="font-extralight text-center text-lg leading-relaxed mb-12 max-w-[350px] mx-auto">
+        <p className="font-extralight text-center text-lg leading-relaxed mb-12 max-w-[350px] mx-auto md:max-w-[700px]">
           Creative-minded IT professional with a passion for human-centered technology. 
           I blend technical skills with empathy and design to create meaningful digital experiences. 
           Currently finishing a Bachelor&apos;s in Information Technology and looking for global 
@@ -171,7 +188,7 @@ export default function Home() {
         
         <div className="mb-8">
           <h3 className="text-center text-xl mb-6">technologies</h3>
-          <div className="flex justify-center space-x-4">
+          <div className="flex justify-center space-x-4 md:space-x-8">
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 flex items-center justify-center mb-2">
                 <Image 
@@ -228,21 +245,21 @@ export default function Home() {
 
       {/* Contact Me Section */}
       <section ref={contactRef} id="contact" className="flex flex-col min-h-screen" style={{ minHeight: '100dvh' }}>
-        <div className="px-8 py-16 flex-grow">
+        <div className="px-8 py-16 flex-grow md:py-24">
           <h2 className="text-2xl mb-12 text-center">contact me</h2>
           
           <div className="text-center mb-24">
-            <p className="font-regular text-xl leading-relaxed mb-6 max-w-[350px] mx-auto">
+            <p className="font-regular text-xl leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
               Ideas are just dreams until design makes them real, turning visions into experiences.
             </p>
             
-            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto">
+            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
               Have an idea that could make a difference?
               If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
               I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
             </p>
             
-            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto">
+            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto md:max-w-[500px]">
               Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
             </p>
             
@@ -291,9 +308,7 @@ export default function Home() {
           </footer>
         </div>
       </section>
-
-
-
     </div>
   );
 }
+
