@@ -53,7 +53,7 @@ export default function Home() {
     if (!el) return false;
     const rect = el.getBoundingClientRect();
     return (
-      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.9 &&
       rect.bottom >= 0
     );
   };
@@ -85,7 +85,27 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', handleScrollAnimations);
     };
-  }, [handleScrollAnimations]); // Adicionando handleScrollAnimations como dependência
+  }, []);
+
+  // Garantir que as animações sejam verificadas quando a página carrega completamente
+  useEffect(() => {
+    // Verificar animações após o carregamento completo da página
+    window.addEventListener('load', handleScrollAnimations);
+    
+    // Verificar animações periodicamente nos primeiros segundos após o carregamento
+    const intervalId = setInterval(handleScrollAnimations, 500);
+    
+    // Limpar após 5 segundos
+    setTimeout(() => {
+      clearInterval(intervalId);
+      window.removeEventListener('load', handleScrollAnimations);
+    }, 5000);
+    
+    return () => {
+      clearInterval(intervalId);
+      window.removeEventListener('load', handleScrollAnimations);
+    };
+  }, []);
 
   return (
     <div className="font-['Poppins'] text-gray-800 min-h-screen bg-gray-50">
@@ -198,6 +218,19 @@ export default function Home() {
           .delay-500 {
             animation-delay: 0.5s;
           }
+          
+          /* Garantir que o menu hambúrguer seja sempre visível */
+          .hamburger-always-visible {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 0.375rem;
+            padding: 0.5rem;
+          }
         `}} />
       </Head>
 
@@ -223,8 +256,8 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* Hamburger Menu Button - Mobile Only - Sempre visível sem fundo */}
-      <div className="fixed top-6 right-6 z-50 md:hidden">
+      {/* Hamburger Menu Button - Mobile Only - Sempre visível com fundo sutil */}
+      <div className="hamburger-always-visible md:hidden">
         <button 
           onClick={toggleMenu} 
           className="flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none"
@@ -328,12 +361,15 @@ export default function Home() {
           />
         </div>
         
-        <p className="font-extralight text-center text-lg leading-relaxed mb-12 max-w-[350px] mx-auto md:max-w-[700px] animate-from-bottom delay-200">
-          Creative-minded IT professional with a passion for human-centered technology. 
-          I blend technical skills with empathy and design to create meaningful digital experiences. 
-          Currently finishing a Bachelor&apos;s in Information Technology and looking for global 
-          opportunities where I can grow, lead and contribute with purpose.
-        </p>
+        {/* Texto com animação garantida */}
+        <div className="animate-from-bottom delay-200">
+          <p className="font-extralight text-center text-lg leading-relaxed mb-12 max-w-[350px] mx-auto md:max-w-[700px]">
+            Creative-minded IT professional with a passion for human-centered technology. 
+            I blend technical skills with empathy and design to create meaningful digital experiences. 
+            Currently finishing a Bachelor&apos;s in Information Technology and looking for global 
+            opportunities where I can grow, lead and contribute with purpose.
+          </p>
+        </div>
         
         <div className="mb-8 animate-from-bottom delay-300">
           <h3 className="text-center text-xl mb-6">technologies</h3>
@@ -398,19 +434,26 @@ export default function Home() {
           <h2 className="text-2xl mb-12 text-center animate-from-bottom">contact me</h2>
           
           <div className="text-center mb-24">
-            <p className="font-regular text-xl leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px] animate-from-bottom delay-100">
-              Ideas are just dreams until design makes them real, turning visions into experiences.
-            </p>
+            {/* Textos com animação garantida */}
+            <div className="animate-from-bottom delay-100">
+              <p className="font-regular text-xl leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
+                Ideas are just dreams until design makes them real, turning visions into experiences.
+              </p>
+            </div>
             
-            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px] animate-from-bottom delay-200">
-              Have an idea that could make a difference?
-              If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
-              I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
-            </p>
+            <div className="animate-from-bottom delay-200">
+              <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
+                Have an idea that could make a difference?
+                If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
+                I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
+              </p>
+            </div>
             
-            <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto md:max-w-[500px] animate-from-bottom delay-300">
-              Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
-            </p>
+            <div className="animate-from-bottom delay-300">
+              <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto md:max-w-[500px]">
+                Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
+              </p>
+            </div>
             
             <div className="flex items-center justify-center mb-2 gap-2 animate-from-bottom delay-400">
               <Image 
@@ -460,4 +503,5 @@ export default function Home() {
     </div>
   );
 }
+
 
