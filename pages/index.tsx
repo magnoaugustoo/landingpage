@@ -303,7 +303,7 @@ export default function Home() {
         
         {/* Footer integrado à seção de contato */}
         <div className="mt-auto w-full">
-        <footer className="bg-[#282828] text-white py-16 -mt-16 w-full">
+        <footer className="bg-[#282828] text-white py-11 -mt-11 w-full">
             <div className="flex justify-center space-x-6 text-base">
               <button 
                 onClick={() => scrollToSection('home')}
