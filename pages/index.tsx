@@ -58,8 +58,14 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
       </Head>
 
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex justify-center items-center space-x-8 p-8 absolute top-0 left-0 right-0 z-50">
+      {/* Desktop Navigation - Apenas na página inicial (home) */}
+      <nav className={`hidden md:flex justify-center items-center space-x-8 p-8 absolute top-0 left-0 right-0 z-50 ${activeSection !== 'home' ? 'md:hidden' : ''}`}>
+        <button 
+          onClick={() => scrollToSection('home')}
+          className={`transition-colors duration-300 ${activeSection === 'home' ? 'text-black font-medium' : 'text-gray-500'}`}
+        >
+          home
+        </button>
         <button 
           onClick={() => scrollToSection('about')}
           className={`transition-colors duration-300 ${activeSection === 'about' ? 'text-black font-medium' : 'text-gray-500'}`}
@@ -121,7 +127,7 @@ export default function Home() {
       {/* Home Section */}
       <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4 md:flex-row md:items-center md:justify-center md:gap-8 md:px-16 lg:px-24" style={{ minHeight: '100dvh' }}>
         {/* Image container - Mobile: bottom, Desktop: left */}
-        <div className="mx-auto mb-12 order-2 md:order-1 md:mb-0 md:w-1/2 md:flex md:justify-end">
+        <div className="mx-auto order-2 md:order-1 md:mb-0 md:w-1/2 md:flex md:justify-end">
           <Image 
             src="/home.png" 
             alt="Magno Augusto Rodrigues" 
@@ -133,14 +139,14 @@ export default function Home() {
         </div>
         
         {/* Text content - Mobile: top, Desktop: right */}
-        <div className="flex-1 flex flex-col justify-center items-center text-center order-1 md:order-2 md:items-start md:text-left md:w-1/2">
+        <div className="flex-1 flex flex-col justify-center items-center text-center order-1 md:order-2 md:w-1/2">
           <h1 className="text-[150px] font-extralight leading-none mb-0 md:text-[180px]">hello,</h1>
           <p className="text-xl mb-8 -mt-4 md:mb-12">
             <span className="font-light">- It&apos;s</span>{' '}
             <span className="font-normal">magno augusto rodrigues</span>
           </p>
 
-          <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center md:place-items-start md:gap-8">
+          <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center md:gap-8">
             <div>
               <h2 className="text-lg font-light mb-1">designer</h2>
               <p className="text-base font-extralight leading-relaxed w-[150px] md:w-auto">
@@ -156,8 +162,8 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Scroll indicator - visible on both layouts but positioned differently */}
-        <div className="text-center mb-8 w-full absolute bottom-0 left-0 md:bottom-8">
+        {/* Scroll indicator - posicionado abaixo da imagem em ambas as versões */}
+        <div className="text-center w-full order-3 mt-8 mb-4 md:absolute md:bottom-8 md:left-0 md:mt-0">
           <p className="text-sm">scroll down</p>
           <svg className="w-6 h-6 mx-auto mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
@@ -311,4 +317,3 @@ export default function Home() {
     </div>
   );
 }
-
