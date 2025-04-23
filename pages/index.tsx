@@ -305,12 +305,17 @@ export default function Home() {
           </div>
         </div>
         
-        {/* Scroll indicator - posicionado abaixo da imagem em ambas as versões */}
-        <div className="text-center w-full order-3 mt-8 mb-4 md:absolute md:bottom-8 md:left-0 md:mt-0 animate-from-bottom delay-500">
-          <p className="text-sm">scroll down</p>
-          <svg className="w-6 h-6 mx-auto mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
+        {/* Scroll indicator - posicionado abaixo da imagem em ambas as versões - Agora sempre visível e clicável */}
+        <div className="text-center w-full order-3 mt-8 mb-4 md:absolute md:bottom-8 md:left-0 md:mt-0 z-10">
+          <button 
+            onClick={() => scrollToSection('about')}
+            className="text-sm cursor-pointer focus:outline-none"
+          >
+            scroll down
+            <svg className="w-6 h-6 mx-auto mt-2 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </button>
         </div>
       </section>
 
