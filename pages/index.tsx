@@ -268,7 +268,7 @@ export default function Home() {
       </div>
 
       {/* Home Section */}
-      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4 md:flex-row md:items-center md:justify-center md:gap-8 md:px-16 lg:px-24" style={{ minHeight: '100svh' }}>
+      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4 md:flex-row md:items-center md:justify-center md:gap-8 md:px-16 lg:px-24" style={{ minHeight: '100dvh' }}>
         {/* Image container - Mobile: bottom, Desktop: left */}
         <div className="mx-auto order-2 md:order-1 md:mb-0 md:w-1/2 md:flex md:justify-end animate-from-left">
           <Image 
@@ -320,7 +320,7 @@ export default function Home() {
       </section>
 
       {/* About Me Section */}
-      <section ref={aboutRef} id="about" className="min-h-screen bg-white flex flex-col px-8 py-16 md:py-24" style={{ minHeight: '100svh' }}>
+      <section ref={aboutRef} id="about" className="min-h-screen bg-white flex flex-col px-8 py-16 md:py-24" style={{ minHeight: '100dvh' }}>
         <h2 className="text-2xl mb-8 text-center animate-from-bottom">about me</h2>
         
         <div className="mx-auto mb-8 w-48 h-48 overflow-hidden rounded-lg animate-from-bottom delay-100">
@@ -398,7 +398,7 @@ export default function Home() {
       </section>
 
       {/* Contact Me Section */}
-      <section ref={contactRef} id="contact" className="flex flex-col min-h-screen" style={{ minHeight: '100svh' }}>
+      <section ref={contactRef} id="contact" className="flex flex-col min-h-screen" style={{ minHeight: '100dvh' }}>
         <div className="px-8 py-16 flex-grow md:py-24">
           <h2 className="text-2xl mb-12 text-center animate-from-bottom">contact me</h2>
           
