@@ -54,8 +54,21 @@ export default function Home() {
         <title>Magno Augusto Rodrigues | Portfolio</title>
         <meta name="description" content="Portfolio de Magno Augusto Rodrigues" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="color-scheme" content="light" />
+        <meta name="theme-color" content="#f9fafb" />
         <link rel="icon" href="/favicon.ico" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+        <style dangerouslySetInnerHTML={{ __html: `
+          @media (prefers-color-scheme: dark) {
+            html {
+              color-scheme: light;
+            }
+            body {
+              background-color: #f9fafb;
+              color: #1f2937;
+            }
+          }
+        `}} />
       </Head>
 
       {/* Desktop Navigation - Apenas na página inicial (home) */}
