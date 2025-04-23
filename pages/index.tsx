@@ -341,7 +341,7 @@ export default function Home() {
         </p>
         
         <div className="mb-8 animate-from-bottom delay-300">
-          <h3 className="text-center text-xl mb-6">technologies</h3>
+          <h3 className="text-center text-xl mb-6 -mt-6">technologies</h3>
           <div className="flex justify-center space-x-4 md:space-x-8">
             <div className="flex flex-col items-center animate-from-bottom delay-300">
               <div className="w-12 h-12 flex items-center justify-center mb-2">
