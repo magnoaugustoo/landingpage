@@ -468,7 +468,7 @@ export default function Home() {
       >
         <h2 className="text-2xl mb-8 text-center animate-from-bottom">contact me</h2>
         
-        <div className="flex-1 flex flex-col justify-center items-center">
+        <div className="flex-1 flex flex-col md:justify-center items-center">
           <div className="w-full max-w-md animate-from-bottom delay-100">
             <p className="font-regular text-xl text-center leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
               Ideas are just dreams until design makes them real, turning visions into experiences.
