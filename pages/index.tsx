@@ -5,9 +5,24 @@ import Image from 'next/image';
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [isMobile, setIsMobile] = useState(false);
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+
+  // Detectar se o dispositivo é móvel para otimização de animações
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Verificar no carregamento inicial
+    checkMobile();
+    
+    // Verificar quando a janela for redimensionada
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -83,13 +98,25 @@ export default function Home() {
     }, 100);
 
     // Adicionar listener de scroll para animar elementos conforme a página é rolada
-    window.addEventListener('scroll', handleScrollAnimations, { passive: true });
+    // Usar throttling para melhorar performance em dispositivos móveis
+    let lastScrollTime = 0;
+    const scrollThreshold = isMobile ? 150 : 50; // Maior intervalo para dispositivos móveis
+    
+    const throttledScrollHandler = () => {
+      const now = Date.now();
+      if (now - lastScrollTime > scrollThreshold) {
+        lastScrollTime = now;
+        handleScrollAnimations();
+      }
+    };
+
+    window.addEventListener('scroll', throttledScrollHandler, { passive: true });
     
     // Limpar o listener quando o componente for desmontado
     return () => {
-      window.removeEventListener('scroll', handleScrollAnimations);
+      window.removeEventListener('scroll', throttledScrollHandler);
     };
-  }, []);
+  }, [isMobile]);
 
   // Garantir que as animações sejam verificadas quando a página carrega completamente
   useEffect(() => {
@@ -97,7 +124,9 @@ export default function Home() {
     window.addEventListener('load', handleScrollAnimations);
     
     // Verificar animações periodicamente nos primeiros segundos após o carregamento
-    const intervalId = setInterval(handleScrollAnimations, 500);
+    // Reduzir frequência em dispositivos móveis
+    const checkInterval = isMobile ? 800 : 500;
+    const intervalId = setInterval(handleScrollAnimations, checkInterval);
     
     // Limpar após 5 segundos
     setTimeout(() => {
@@ -109,7 +138,14 @@ export default function Home() {
       clearInterval(intervalId);
       window.removeEventListener('load', handleScrollAnimations);
     };
-  }, []);
+  }, [isMobile]);
+
+  // Estilos de seção com altura mínima fixa
+  const sectionStyle = {
+    minHeight: '100dvh',
+    minHeightFallback: '100vh', // Fallback para navegadores que não suportam dvh
+    minHeightFixed: '600px' // Altura mínima fixa para garantir consistência em telas pequenas
+  };
 
   return (
     <div className="font-['Poppins'] text-gray-800 min-h-screen bg-gray-50">
@@ -167,29 +203,41 @@ export default function Home() {
             }
           }
 
-          /* Classes para aplicar as animações */
+          /* Classes para aplicar as animações - otimizadas para performance */
           .animate-from-left {
             opacity: 0;
             transform: translateX(-100%);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
           }
 
           .animate-from-right {
             opacity: 0;
             transform: translateX(100%);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
           }
 
           .animate-from-bottom {
             opacity: 0;
             transform: translateY(50px);
             transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
           }
 
           /* Classe para quando o elemento está visível */
           .animate-visible {
             opacity: 1;
             transform: translate(0);
+          }
+
+          /* Versão otimizada para dispositivos móveis */
+          @media (max-width: 767px) {
+            .animate-from-left,
+            .animate-from-right,
+            .animate-from-bottom {
+              transition-duration: 0.5s; /* Duração mais curta em dispositivos móveis */
+            }
           }
 
           /* Atrasos para criar efeito em cascata */
@@ -282,7 +330,11 @@ export default function Home() {
       </div>
 
       {/* Home Section */}
-      <section ref={homeRef} className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4 md:flex-row md:items-center md:justify-center md:gap-8 md:px-16 lg:px-24" style={{ minHeight: '100dvh' }}>
+      <section 
+        ref={homeRef} 
+        className="min-h-screen flex flex-col justify-between px-8 pt-0 pb-4 md:flex-row md:items-center md:justify-center md:gap-8 md:px-16 lg:px-24" 
+        style={{ minHeight: 'max(100dvh, 600px)' }}
+      >
         {/* Image container - Mobile: bottom, Desktop: left */}
         <div className="mx-auto order-2 md:order-1 md:mb-0 md:w-1/2 md:flex md:justify-end animate-from-left">
           <Image 
@@ -329,7 +381,12 @@ export default function Home() {
       </section>
 
       {/* About Me Section */}
-      <section ref={aboutRef} id="about" className="min-h-screen bg-white flex flex-col px-8 py-16 md:py-24" style={{ minHeight: '100dvh' }}>
+      <section 
+        ref={aboutRef} 
+        id="about" 
+        className="min-h-screen bg-white flex flex-col px-8 py-16 md:py-24" 
+        style={{ minHeight: 'max(100dvh, 600px)' }}
+      >
         <h2 className="text-2xl mb-8 text-center animate-from-bottom">about me</h2>
         
         <div className="mx-auto mb-8 w-48 h-48 overflow-hidden rounded-lg animate-from-bottom delay-100">
@@ -400,14 +457,20 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section ref={contactRef} id="contact" className="min-h-screen flex flex-col px-8 py-16 md:py-24" style={{ minHeight: '100dvh' }}>
+      <section 
+        ref={contactRef} 
+        id="contact" 
+        className="min-h-screen flex flex-col px-8 py-16 md:py-24" 
+        style={{ minHeight: 'max(100dvh, 600px)' }}
+      >
         <h2 className="text-2xl mb-8 text-center animate-from-bottom">contact me</h2>
         
         <div className="flex-1 flex flex-col justify-center items-center">
           <div className="w-full max-w-md animate-from-bottom delay-100">
             <p className="font-regular text-xl text-center leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
-            Ideas are just dreams until design makes them real, turning visions into experiences.
+              Ideas are just dreams until design makes them real, turning visions into experiences.
             </p>
+            
             <p className="text-center font-extralight text-lg mb-8">
             Have an idea that could make a difference?
             If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
@@ -435,31 +498,7 @@ export default function Home() {
                 </a>
               </div>
             </div>
-
           </div>
-          
-          <footer className="w-full text-center mt-auto animate-from-bottom delay-200">
-            <div className="flex justify-center space-x-4 text-xs text-gray-500">
-              <button 
-                onClick={() => scrollToSection('home')}
-                className="hover:text-gray-800 transition-colors"
-              >
-                home
-              </button>
-              <button 
-                onClick={() => scrollToSection('about')}
-                className="hover:text-gray-800 transition-colors"
-              >
-                about me
-              </button>
-              <button 
-                onClick={() => scrollToSection('contact')}
-                className="hover:text-gray-800 transition-colors"
-              >
-                contact me
-              </button>
-            </div>
-          </footer>
         </div>
       </section>
     </div>
