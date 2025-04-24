@@ -439,7 +439,6 @@ export default function Home() {
           </div>
           
           <footer className="w-full text-center mt-auto animate-from-bottom delay-200">
-            <p className="text-sm font-extralight mb-4">© 2025 Magno Augusto Rodrigues</p>
             <div className="flex justify-center space-x-4 text-xs text-gray-500">
               <button 
                 onClick={() => scrollToSection('home')}
