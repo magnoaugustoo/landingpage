@@ -438,6 +438,16 @@ export default function Home() {
             <div className="flex flex-col items-center animate-from-bottom delay-450">
               <div className="w-12 h-12 flex items-center justify-center mb-2">
                 <Image 
+                  src="/css.svg" 
+                  alt="CSS3" 
+                  width={30} 
+                  height={30} 
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-center animate-from-bottom delay-500">
+              <div className="w-12 h-12 flex items-center justify-center mb-2">
+                <Image 
                   src="/html.svg" 
                   alt="HTML5" 
                   width={30} 
