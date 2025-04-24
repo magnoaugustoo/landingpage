@@ -171,69 +171,46 @@ export default function Home() {
           .animate-from-left {
             opacity: 0;
             transform: translateX(-100%);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
           }
 
           .animate-from-right {
             opacity: 0;
             transform: translateX(100%);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
           }
 
           .animate-from-bottom {
             opacity: 0;
             transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
           }
 
           /* Classe para quando o elemento está visível */
           .animate-visible {
-            animation-duration: 0.8s;
-            animation-fill-mode: forwards;
-            animation-timing-function: ease-out;
-          }
-
-          .animate-visible.animate-from-left {
-            animation-name: slideInFromLeft;
-          }
-
-          .animate-visible.animate-from-right {
-            animation-name: slideInFromRight;
-          }
-
-          .animate-visible.animate-from-bottom {
-            animation-name: slideInFromBottom;
+            opacity: 1;
+            transform: translate(0);
           }
 
           /* Atrasos para criar efeito em cascata */
           .delay-100 {
-            animation-delay: 0.1s;
+            transition-delay: 0.1s;
           }
 
           .delay-200 {
-            animation-delay: 0.2s;
+            transition-delay: 0.2s;
           }
 
           .delay-300 {
-            animation-delay: 0.3s;
+            transition-delay: 0.3s;
           }
 
           .delay-400 {
-            animation-delay: 0.4s;
+            transition-delay: 0.4s;
           }
 
           .delay-500 {
-            animation-delay: 0.5s;
-          }
-          
-          /* Garantir que o menu hambúrguer seja sempre visível */
-          .hamburger-always-visible {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            z-index: 100;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border-radius: 0.375rem;
-            padding: 0.5rem;
+            transition-delay: 0.5s;
           }
         `}} />
       </Head>
@@ -260,8 +237,8 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* Hamburger Menu Button - Mobile Only - Sempre visível com fundo sutil */}
-      <div className="hamburger-always-visible md:hidden">
+      {/* Hamburger Menu Button - Apenas Mobile */}
+      <div className="fixed top-6 right-6 z-50 md:hidden">
         <button 
           onClick={toggleMenu} 
           className="flex flex-col justify-center items-center w-8 h-8 space-y-1 focus:outline-none"
@@ -418,49 +395,30 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div className="flex flex-col items-center animate-from-bottom delay-500">
-              <div className="w-12 h-12 flex items-center justify-center mb-2">
-                <Image 
-                  src="/css.svg" 
-                  alt="CSS3" 
-                  width={30} 
-                  height={30} 
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Me Section */}
-      <section ref={contactRef} id="contact" className="flex flex-col min-h-screen" style={{ minHeight: '100dvh' }}>
-        <div className="px-8 py-16 flex-grow md:py-24">
-          <h2 className="text-2xl mb-12 text-center animate-from-bottom">contact me</h2>
-          
-          <div className="text-center mb-24">
-            {/* Textos com animação garantida */}
-            <div className="animate-from-bottom delay-100">
-              <p className="font-regular text-xl leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
-                Ideas are just dreams until design makes them real, turning visions into experiences.
-              </p>
-            </div>
+      {/* Contact Section */}
+      <section ref={contactRef} id="contact" className="min-h-screen flex flex-col px-8 py-16 md:py-24" style={{ minHeight: '100dvh' }}>
+        <h2 className="text-2xl mb-8 text-center animate-from-bottom">contact me</h2>
+        
+        <div className="flex-1 flex flex-col justify-center items-center">
+          <div className="w-full max-w-md animate-from-bottom delay-100">
+            <p className="font-regular text-xl text-center leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
+            Ideas are just dreams until design makes them real, turning visions into experiences.
+            </p>
+            <p className="text-center font-extralight text-lg mb-8">
+            Have an idea that could make a difference?
+            If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
+            I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
+            </p>
+            <p className="text-center font-extralight text-lg mb-8">
+            Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
+            </p>
             
-            <div className="animate-from-bottom delay-200">
-              <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[350px] mx-auto md:max-w-[700px]">
-                Have an idea that could make a difference?
-                If you&apos;re holding onto a bold vision, a meaningful project, or just a spark of inspiration—you don&apos;t have to build it alone.
-                I&apos;m here to help turn your ideas into powerful, real-world designs that connect, inspire, and make an impact.
-              </p>
-            </div>
-            
-            <div className="animate-from-bottom delay-300">
-              <p className="text-lg font-extralight leading-relaxed mb-6 max-w-[300px] mx-auto md:max-w-[500px]">
-                Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
-              </p>
-            </div>
-            
-            <div className="flex items-center justify-center mb-2 gap-2 animate-from-bottom delay-400">
-              <Image 
+            <div className="flex justify-center space-x-6 mb-12">
+            <Image 
                 src="/linked-in.svg" 
                 alt="LinkedIn" 
                 width={30} 
@@ -476,27 +434,25 @@ export default function Home() {
               </a>
             </div>
           </div>
-        </div>
-        
-        {/* Footer integrado à seção de contato */}
-        <div className="mt-auto w-full">
-        <footer className="bg-[#282828] text-white py-11 -mt-11 w-full">
-            <div className="flex justify-center space-x-6 text-base">
+          
+          <footer className="w-full text-center mt-auto animate-from-bottom delay-200">
+            <p className="text-sm font-extralight mb-4">© 2025 Magno Augusto Rodrigues</p>
+            <div className="flex justify-center space-x-4 text-xs text-gray-500">
               <button 
                 onClick={() => scrollToSection('home')}
-                className={`transition-colors duration-300 ${activeSection === 'home' ? 'text-white' : 'text-gray-400'}`}
+                className="hover:text-gray-800 transition-colors"
               >
                 home
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className={`transition-colors duration-300 ${activeSection === 'about' ? 'text-white' : 'text-gray-400'}`}
+                className="hover:text-gray-800 transition-colors"
               >
                 about me
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className={`transition-colors duration-300 ${activeSection === 'contact' ? 'text-white' : 'text-gray-400'}`}
+                className="hover:text-gray-800 transition-colors"
               >
                 contact me
               </button>
