@@ -116,7 +116,7 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', throttledScrollHandler);
     };
-  }, [isMobile]);
+  }, [isMobile, handleScrollAnimations]);
 
   // Garantir que as animações sejam verificadas quando a página carrega completamente
   useEffect(() => {
@@ -138,14 +138,7 @@ export default function Home() {
       clearInterval(intervalId);
       window.removeEventListener('load', handleScrollAnimations);
     };
-  }, [isMobile]);
-
-  // Estilos de seção com altura mínima fixa
-  const sectionStyle = {
-    minHeight: '100dvh',
-    minHeightFallback: '100vh', // Fallback para navegadores que não suportam dvh
-    minHeightFixed: '600px' // Altura mínima fixa para garantir consistência em telas pequenas
-  };
+  }, [isMobile, handleScrollAnimations]);
 
   return (
     <div className="font-['Poppins'] text-gray-800 min-h-screen bg-gray-50">
