@@ -329,7 +329,7 @@ export default function Home() {
         style={{ minHeight: 'max(100dvh, 600px)' }}
       >
         {/* Image container - Mobile: bottom, Desktop: left */}
-        <div className="mx-auto order-2 md:order-1 md:mb-0 md:w-1/2 md:flex md:justify-end animate-from-left">
+        <div className="mx-auto order-2 md:order-1 md:mb-0 md:w-1/2 md:flex md:justify-end animate-from-bottom">
           <Image 
             src="/home.png" 
             alt="Magno Augusto Rodrigues" 
@@ -341,7 +341,7 @@ export default function Home() {
         </div>
         
         {/* Text content - Mobile: top, Desktop: right */}
-        <div className="flex-1 flex flex-col justify-center items-center text-center order-1 md:order-2 md:w-1/2 animate-from-right">
+        <div className="flex-1 flex flex-col justify-center items-center text-center order-1 md:order-2 md:w-1/2 animate-from-bottom">
           <h1 className="text-[150px] font-extralight leading-none mb-0 md:text-[180px]">hello,</h1>
           <p className="text-xl mb-8 -mt-4 md:mb-12">
             <span className="font-light">- It&apos;s</span>{' '}
@@ -349,13 +349,13 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-4 w-full max-w-[350px] place-items-center md:gap-8">
-            <div className="animate-from-right delay-200">
+            <div className="animate-from-bottom delay-200">
               <h2 className="text-lg font-light mb-1">designer</h2>
               <p className="text-base font-extralight leading-relaxed w-[150px] md:w-auto">
                 Crafting intuitive UIs & design systems as a product designer
               </p>
             </div>
-            <div className="animate-from-right delay-300">
+            <div className="animate-from-bottom delay-300">
               <h2 className="text-lg font-light mb-1">&lt;coder&gt;</h2>
               <p className="text-base font-extralight leading-relaxed w-[150px] md:w-auto">
                 Building elegant front-ends with logic, style, and precision
