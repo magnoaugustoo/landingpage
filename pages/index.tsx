@@ -417,22 +417,25 @@ export default function Home() {
             Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
             </p>
             
-            <div className="flex justify-center space-x-6 mb-12">
-            <Image 
-                src="/linked-in.svg" 
-                alt="LinkedIn" 
-                width={30} 
-                height={30} 
-              />
-              <a 
-                href="https://www.linkedin.com/in/magnoaugusto/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="text-[#282828] hover:underline"
-              >
-                linkedin.com/in/magnoaugusto
-              </a>
+            <div className="flex justify-center mb-12">
+              <div className="flex items-center space-x-2">
+                <Image 
+                  src="/linked-in.svg" 
+                  alt="LinkedIn" 
+                  width={30} 
+                  height={30} 
+                />
+                <a 
+                  href="https://www.linkedin.com/in/magnoaugusto/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-[#282828] hover:underline"
+                >
+                  linkedin.com/in/magnoaugusto
+                </a>
+              </div>
             </div>
+
           </div>
           
           <footer className="w-full text-center mt-auto animate-from-bottom delay-200">
