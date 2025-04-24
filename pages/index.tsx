@@ -483,7 +483,7 @@ export default function Home() {
             Let&apos;s bring your vision to life. Get in touch and let&apos;s create something remarkable together.
             </p>
             
-            <div className="flex justify-center mb-12">
+            <div className="flex justify-center mb-12 animate-from-bottom delay-300">
               <div className="flex items-center space-x-2">
                 <Image 
                   src="/linked-in.svg" 
