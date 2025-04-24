@@ -223,7 +223,7 @@ export default function Home() {
         </button>
       </nav>
 
-      {/* Hamburger Menu Button - Mobile Only */}
+      {/* Hamburger Menu Button - Mobile Only - Sempre visível sem fundo */}
       <div className="fixed top-6 right-6 z-50 md:hidden">
         <button 
           onClick={toggleMenu} 
